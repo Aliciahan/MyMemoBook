@@ -1,0 +1,162 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[a4paper,top=1in,bottom=1in,left=1.25in,right=1.25in]{geometry}
+\usepackage{amsmath,latexsym,amssymb,stmaryrd}
+\usepackage{amsfonts,amsthm}
+\usepackage[utf8]{inputenc}
+\usepackage[OT1]{fontenc}
+\usepackage[french]{babel} % important pour la typographie et les cÃ©sures
+\usepackage{verbatim,alltt,bm}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage[myheadings]{fullpage}
+\setlength{\topmargin}{-1cm}
+\setlength{\textheight}{25cm}
+\usepackage[linewidth=1pt]{mdframed}
+\usepackage[section]{placeins}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage[titletoc]{appendix}
+\usepackage{framed}
+\usepackage{minted}
+\usepackage{listings}
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+
+\title{How to Setup Latex + Vim Mode with Mac OS + Atom}
+\author{\\\\\\\\\\\\\\\\\\HAN Xicun\\\\
+\texttt{xicun.han@gmail.com}\\\\}
+\date{2 Mars 2017}
+
+
+\begin{document}
+	\pagestyle{empty}
+	\maketitle
+	\thispagestyle{empty}
+	\clearpage
+	%\pagebreak
+
+	\tableofcontents
+	\newpage
+	\renewcommand\listoflistingscaption{List of source codes}
+	\listoflistings
+
+	\thispagestyle{empty}
+	\newpage
+	\pagestyle{fancy}
+	\lhead{}
+	\chead{}
+	%\rhead{}
+	%\begin{abstract} \setcounter{page}{1}
+	%	Ã  remplir
+	%\end{abstract}
+	\pagebreak
+	\FloatBarrier
+
+%\begin{abstract}
+
+%\end{abstract}
+%\newpage
+
+\section{Motivation}
+
+Latex has been long time used as a powerful tool scientific, I recently used it as a tool for my Annuel Project Report. But as we all know, it is not a simple one like markdown, it demands always a lot of configuration  before we can start the real work. \\
+
+Also, when we read a README.md in Github, it seems like the Markdown corresponds better our needs. But if we consider further, markdown language, it highly simplified from the Latex and will not have a good structure, especially when the article is long, and it lack of functionalities layout if we look at the conversion to PDF. \\
+
+In the other hand, the Latex, has all the functionalities, but, lack of simplicity and can not adapt to the needs of Web support, as the case of Github - readme.md.\\
+
+What I want to do is to simplify the operation of Latex, and use the Markdown language as the maker of Table of Contents. Which is to say, the markdown should always be bref and efficient, while all the complexities appear in the pdf constructed by Latex.\\
+
+In order to do that, we need a powerful IDE with which we can simplify the works on Latex, but it should be light. In the ideal assumption this IDE should support the Vim mode.\\
+
+Why we don't use directly vim? \\
+
+In my opinion, the vim is good for system maintain but not alway good to program. I don't want to put anything in the design of vim, it is like Mysophobia for VIM, but actually, Yes I am.\\
+
+
+\section{Design}
+
+\subsection{Analysis of Needs}
+
+\begin{itemize}
+	\item [*] IDE Light weight
+	\item [*] Approximately Zero Preparation.
+	\item [*] Vim Mode Supported
+	\item [*] Bundle Snippets Supported (To simplify the operation like Emmet-Ancient ZenCoding)
+	\item [*] Latex Markdown conversion possible
+	\item [*] Latex/Markdown Preview Possible
+	\item [*] French and English Spelling Check supported
+	\item [*] In latex, insert code bloc possible
+\end{itemize}
+
+
+\subsection{Solution}
+
+\begin{tabular}{| l | l |}
+ 	\hline
+ \tabincell{l}{IDE} & \tabincell{l}{ATOM - For the more friendly user interface, \\more plug-ins than sublime text}\\
+ \hline
+ \tabincell{l}{Preparation simplifying} & \tabincell{l}{Making template \\ copy it each time} \\
+ \hline
+ \tabincell{l}{Vim Mode} & \tabincell{l}{Plug-in: Vim-mode-plus\\ Do not have all the function but sufficient}\\
+ \hline
+ \tabincell{l}{Snippets} & \tabincell{l}{Snippets plug-in configuration \\ using language-latex plug-in \\Of cause we should learn how to define our own\\ very simple }\\
+ \hline
+ \tabincell{l}{Latex Markdown Conversion} & \tabincell{l}{Pandoc, that's all! }\\
+ \hline
+ \tabincell{l}{Preview} & \tabincell{l}{package: Latex \\ for md: markdown preview plus}\\
+ \hline
+ \tabincell{l}{Spelling Check} & \tabincell{l}{Spell Check, \\ should config to examine text.tex.latex}\\
+ \hline
+ \tabincell{l}{CodeBloc} & \tabincell{l}{using minted in Latex}\\
+ \hline
+ \end{tabular}
+
+
+\section{Result}
+
+Some small problems but basically \textbf{satisfied}\\
+
+\subsection{CodeBloc}
+
+\begin{listing}[ht]
+\begin{minted}[frame=lines,
+%framesep=2m,baselinestretch=1.2,bgcolor=white,fontsize=\footnotesize,
+linenos]
+{java}
+ package com.xicun;
+
+ /**
+  * Created by xicunhan on 21/01/2017.
+  */
+ public class Chocolate003 {
+     public static int breakChocolate(int n, int m) {
+         if (n<1 || m<1){
+             return 0;
+         }else if (n==1 && m==1){
+             return 0;
+         } else{
+             return m*n-1;
+         }
+     }
+
+
+     public static int breakChocolateSolution(int n, int m){
+         //best practice:
+         return Math.max(n*m-1,0);
+     }
+ }
+
+ \end{minted}
+ \label{code:1}
+ \caption{Some Java Code}
+ \end{listing}
+ \FloatBarrier
+
+
+%\bibliographystyle{IEEEtran}
+%\bibliography{biblio}
+
+\end{document}
