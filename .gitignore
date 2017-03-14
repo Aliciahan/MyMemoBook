@@ -11,6 +11,10 @@
 *.cb
 *.cb2
 
+## Docker Exercises 
+
+./002_Docker_Learning/Exercices
+
 ## Intermediate documents:
 *.dvi
 *-converted-to.*
